@@ -1,0 +1,217 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{0D3B608F-5EA2-4C86-92D7-307A2F936EEB}</ProjectGuid>
+			<ProjectVersion>13.4</ProjectVersion>
+			<FrameworkType>VCL</FrameworkType>
+			<MainSource>HelloMinecraftLauncher.dpr</MainSource>
+			<Base>True</Base>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<Platform Condition="'$(Platform)'==''">Win32</Platform>
+			<TargetedPlatforms>1</TargetedPlatforms>
+			<AppType>Application</AppType>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+			<Base_Win32>true</Base_Win32>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+			<Cfg_1_Win32>true</Cfg_1_Win32>
+			<CfgParent>Cfg_1</CfgParent>
+			<Cfg_1>true</Cfg_1>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_DependencyCheckOutputName>%Platform%\%Config%\HelloMinecraftLauncher.exe</DCC_DependencyCheckOutputName>
+			<DCC_UsePackage>bindcompfmx;fmx;rtl;dbrtl;IndySystem;DbxClientDriver;bindcomp;inetdb;DBXInterBaseDriver;DataSnapCommon;DataSnapClient;DataSnapServer;DataSnapProviderClient;xmlrtl;DbxCommonDriver;IndyProtocols;DBXMySQLDriver;dbxcds;soaprtl;bindengine;DBXOracleDriver;dsnap;DBXInformixDriver;IndyCore;fmxase;DBXFirebirdDriver;inet;fmxobj;inetdbxpress;DBXSybaseASADriver;fmxdae;dbexpress;DataSnapIndy10ServerTransport;IPIndyImpl;$(DCC_UsePackage)</DCC_UsePackage>
+			<Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
+			<DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+			<DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
+			<DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
+			<DCC_E>false</DCC_E>
+			<DCC_N>false</DCC_N>
+			<DCC_S>false</DCC_S>
+			<DCC_F>false</DCC_F>
+			<DCC_K>false</DCC_K>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base_Win32)'!=''">
+			<VerInfo_MinorVer>4</VerInfo_MinorVer>
+			<VerInfo_MajorVer>0</VerInfo_MajorVer>
+			<Icon_MainIcon>HelloMinecraftLauncher_Icon.ico</Icon_MainIcon>
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<VerInfo_Locale>2052</VerInfo_Locale>
+			<Manifest_File>None</Manifest_File>
+			<VerInfo_Keys>CompanyName=huanghongxun;FileDescription=Hello Minecraft! Launcher;FileVersion=0.4.0.0;InternalName=;LegalCopyright=(c) Copyright 2013 huanghongxun;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=0.4.0.0</VerInfo_Keys>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+			<DCC_Optimize>false</DCC_Optimize>
+			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+			<DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+			<DCC_RemoteDebug>true</DCC_RemoteDebug>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+			<VerInfo_MinorVer>4</VerInfo_MinorVer>
+			<VerInfo_MajorVer>0</VerInfo_MajorVer>
+			<Icon_MainIcon>d:\embarcadero\rad studio\9.0\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
+			<VerInfo_Locale>2052</VerInfo_Locale>
+			<Manifest_File>None</Manifest_File>
+			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=0.4.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0</VerInfo_Keys>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="$(MainSource)">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="UForm1.pas"/>
+			<DCCReference Include="UProcessManager.pas"/>
+			<DCCReference Include="UFrmMCVersions.pas"/>
+			<DCCReference Include="UFrmNews.pas"/>
+			<DCCReference Include="UFrmAssets.pas"/>
+			<DCCReference Include="UFrmVersionManager.pas"/>
+			<DCCReference Include="UFrmInputBox.pas"/>
+			<DCCReference Include="UMinecraftDownloader.pas"/>
+			<DCCReference Include="UMinecraftOldVersionIncluder.pas"/>
+			<DCCReference Include="FrmModsManage.pas"/>
+			<DCCReference Include="VCLZipPro451_1\kpSFXCfg.pas"/>
+			<DCCReference Include="VCLZipPro451_1\VCLUnZip.pas"/>
+			<DCCReference Include="VCLZipPro451_1\VCLZip.pas"/>
+			<DCCReference Include="superobject.pas"/>
+			<DCCReference Include="superxmlparser.pas"/>
+			<DCCReference Include="UMinecraftVersionsLoader.pas"/>
+			<DCCReference Include="USettingsManager.pas"/>
+			<DCCReference Include="UMinecraftLoader.pas"/>
+			<DCCReference Include="ULauncherProfileLoader.pas"/>
+			<DCCReference Include="UFileUtilities.pas"/>
+			<DCCReference Include="UOfficalLogin.pas"/>
+			<DCCReference Include="UFrmInfo.pas">
+				<Form>FrmInfo</Form>
+			</DCCReference>
+			<DCCReference Include="ULanguageLoader.pas"/>
+			<RcItem Include="Resources\close.png">
+				<ResourceType>RCData</ResourceType>
+				<ResourceId>PngImage_1</ResourceId>
+			</RcItem>
+			<RcItem Include="Resources\close_light.png">
+				<ResourceType>RCData</ResourceType>
+				<ResourceId>PngImage_2</ResourceId>
+			</RcItem>
+			<RcItem Include="Resources\minimum.png">
+				<ResourceType>RCData</ResourceType>
+				<ResourceId>PngImage_3</ResourceId>
+			</RcItem>
+			<RcItem Include="Resources\minimum_light.png">
+				<ResourceType>RCData</ResourceType>
+				<ResourceId>PngImage_4</ResourceId>
+			</RcItem>
+			<None Include="D:\AlphaControls\DelphiXE2\acntDelphiXE2.dpk"/>
+			<None Include="D:\AlphaControls\DelphiXE2\acntDelphiXE2.dproj"/>
+			<None Include="D:\AlphaControls\DelphiXE2\acntDelphiXE2.dproj.local"/>
+			<None Include="D:\AlphaControls\DelphiXE2\acntDelphiXE2_r.dpk"/>
+			<None Include="D:\AlphaControls\DelphiXE2\acntDelphiXE2_R.dproj"/>
+			<None Include="D:\AlphaControls\DelphiXE2\acntDelphiXE2_r.dproj.local"/>
+			<None Include="D:\AlphaControls\DelphiXE2\adler32.obj"/>
+			<None Include="D:\AlphaControls\DelphiXE2\compress.obj"/>
+			<None Include="D:\AlphaControls\DelphiXE2\crc32.obj"/>
+			<None Include="D:\AlphaControls\DelphiXE2\deflate.obj"/>
+			<None Include="D:\AlphaControls\DelphiXE2\infback.obj"/>
+			<None Include="D:\AlphaControls\DelphiXE2\inffast.obj"/>
+			<None Include="D:\AlphaControls\DelphiXE2\inflate.obj"/>
+			<None Include="D:\AlphaControls\DelphiXE2\inftrees.obj"/>
+			<None Include="D:\AlphaControls\DelphiXE2\sDefs.inc"/>
+			<None Include="D:\AlphaControls\DelphiXE2\trees.obj"/>
+			<None Include="D:\AlphaControls\DelphiXE2\ZLibEx.inc"/>
+			<None Include="VCLZipPro451_1\kpDefs.inc"/>
+			<None Include="VCLZipPro451_1\__history"/>
+			<None Include="VCLZipPro451_1"/>
+			<None Include="..\HelloMinecraftLauncher"/>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Delphi.Personality>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">2052</VersionInfo>
+						<VersionInfo Name="CodePage">936</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName"/>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<Source>
+						<Source Name="MainSource">HelloMinecraftLauncher.dpr</Source>
+					</Source>
+					<Parameters>
+						<Parameters Name="UseLauncher">False</Parameters>
+						<Parameters Name="LoadAllSymbols">True</Parameters>
+						<Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+					</Parameters>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcboffice2k160.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\bcbofficexp160.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k160.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclofficexp160.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+					</Excluded_Packages>
+				</Delphi.Personality>
+				<Deployment/>
+				<Platforms>
+					<Platform value="Win64">False</Platform>
+					<Platform value="Win32">True</Platform>
+				</Platforms>
+				<ModelSupport>False</ModelSupport>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+	</Project>

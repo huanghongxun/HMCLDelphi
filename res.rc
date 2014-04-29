@@ -1,0 +1,6 @@
+close RCDATA "Resources\\close.png"
+close_light RCDATA "Resources\\close_light.png"
+minimum RCDATA "Resources\\minimum.png"
+minimum_light RCDATA "Resources\\minimum_light.png"
+background RCDATA "Resources\\background.png"
+icon ICON "Resources\\icon.ico"
